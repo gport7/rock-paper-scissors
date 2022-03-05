@@ -48,17 +48,18 @@ function showScore () {
 
 //plays 5 rounds then reports the final score, or goes to a tie breaker
 function play5Rounds () {
+    console.log("Let the games begin!")
     for (let i = 1; i <=5; i++) {
-        console.log("ROUND " + i + "!");
+        console.log("----------ROUND " + i + "!----------");
         playRound();
     }   
     if (playerScore > computerScore) {
-        console.log("Player has won!")
+        console.log("Player has won the whole game!")
     } else if (playerScore < computerScore) {
-        console.log("Computer has won!")
+        console.log("Computer has won the whole game!")
     } else {
         while(playerScore === computerScore){
-            console.log("TIE BREAKER!!!!!")
+            console.log("-------TIE BREAKER!!!-------")
             playRound();
         }
     }
