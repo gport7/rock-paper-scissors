@@ -33,7 +33,7 @@ function playerPlay () {
 }
 
 //play one round
-function playRound (computerSelection) {
+function playRound () {
     playerSelection = playerPlay();
     computerSelection = computerPlay();
     if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
@@ -61,7 +61,7 @@ function showScore () {
 }
 
 //plays rounds (based on rounds variable) then reports the final score, or goes to a tie breaker
-function playRounds () {
+function game () {
     console.log("Let the games begin!")
     for (let i = 1; i <= rounds; i++) {
         console.log("----------ROUND " + i + "!----------");
@@ -83,4 +83,4 @@ function playRounds () {
     }
 }
 
-playRounds();
+game();
