@@ -2,6 +2,7 @@ let computerSelection;
 let computerScore = 0;
 let playerSelection;
 let playerScore = 0;
+let rounds = 5;
 
 //computer chooses Rock, Paper, or Scissors randomly and returns the result
 function computerPlay () {
@@ -21,11 +22,15 @@ function computerPlay () {
 //player chooses Rock, Paper, or Scissors in a non-case-sensitive way
 function playerPlay () {
     let input = prompt("Rock, Paper, or Scissors?");
-    let choice = input[0].toUpperCase() + input.substring(1).toLowerCase();
+    let choice;
+    if (input.length === 0) {
+        choice = input;
+    } else {
+        choice = input[0].toUpperCase() + input.substring(1).toLowerCase();
+    }
     console.log("Player choice: " + choice)
     return choice;
 }
-
 
 //play one round
 function playRound (computerSelection) {
@@ -55,24 +60,27 @@ function showScore () {
     console.log("Player: " + playerScore + ", Computer: " + computerScore);
 }
 
-//plays 5 rounds then reports the final score, or goes to a tie breaker
-function play5Rounds () {
+//plays rounds (based on rounds variable) then reports the final score, or goes to a tie breaker
+function playRounds () {
     console.log("Let the games begin!")
-    for (let i = 1; i <=5; i++) {
+    for (let i = 1; i <= rounds; i++) {
         console.log("----------ROUND " + i + "!----------");
         playRound();
     }   
-    if (playerScore > computerScore) {
-        console.log("Player has won the whole game!")
-    } else if (playerScore < computerScore) {
-        console.log("Computer has won the whole game!")
-    } else {
-        while(playerScore === computerScore){
-            console.log("-------TIE BREAKER!!!-------")
-            playRound();
-        }
+    while(playerScore === computerScore){
+        rounds++;
+        console.log("-------TIE BREAKER!!!-------");
+        console.log("----------------------------")
+        console.log("----------ROUND " + rounds + "!----------");
+        playRound();
     }
+    console.log("----------------------------");
     console.log("FINAL RESULTS: PLAYER: " + playerScore + ", COMPUTER: " + computerScore);
+    if (playerScore > computerScore) {
+        console.log("Player has won the whole game!");
+    } else {
+        console.log("Computer has won the whole game!");
+    }
 }
 
-play5Rounds();
+playRounds();
