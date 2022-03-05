@@ -1,6 +1,6 @@
 let computerSelection;
-let computerScore = 0;
 let playerSelection;
+let computerScore = 0;
 let playerScore = 0;
 let rounds = 5;
 
@@ -36,7 +36,7 @@ function playerPlay () {
 function playRound () {
     playerSelection = playerPlay();
     computerSelection = computerPlay();
-    if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
+    if (computerSelection === playerSelection) {
         console.log("This round is a tie!");      
     } else if (computerSelection === "Rock" && playerSelection === "Scissors" ||
                 computerSelection === "Scissors" && playerSelection === "Paper" ||
