@@ -69,8 +69,7 @@ function game () {
     }   
     while(playerScore === computerScore){
         rounds++;
-        console.log("-------TIE BREAKER!!!-------");
-        console.log("----------------------------")
+        console.log("--------TIE BREAKER!--------");
         console.log("----------ROUND " + rounds + "!----------");
         playRound();
     }
