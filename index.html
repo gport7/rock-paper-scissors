@@ -8,39 +8,42 @@
     <link rel="stylesheet" href="./style.css"></link>
 </head>
 <body>
-    <div id="round-heading">Round 1</div>
-    <div class="icon-row">
-        <!-- Player RPS icons -->
+    <div class="icon-row player">
         <div class="player-move icon">
             <img id="player-rock" src="./images/pexels-min-an-749090.jpg" alt="red rocky mountain with blue sky - Photo by Min An from Pexels">
+            <div class="icon-text">Rock</div>
         </div>
         <div class="player-move icon">
             <img id="player-paper" src="./images/pexels-mali-maeder-142497.jpg" alt="tree stump in forest - Photo by mali maeder from Pexels">
+            <div class="icon-text">Paper</div>
         </div>
         <div class="player-move icon">
             <img id="player-scissors" src="./images/pexels-markus-spiske-203553.jpg" alt="axe in stump - Photo by Markus Spiske from Pexels">
+            <div class="icon-text">Scissors</div>
         </div>        
     </div>
-    <div>
-        <!-- Player, score, empty -->
+    <div class="player name">
+        Player
     </div>
-    <div>
-        <!-- default says VS, then actions replace the VS, then VS returns after a delay -->
+    <div class="vs">
+        VS.
     </div>
-    <div>
-        <!-- Computer, score, empty -->
+    <div class="computer name">
+        Computer
     </div>
-    <div class="icon-row">
+    <div class="icon-row computer">
         <div class="icon">
             <img id="computer-rock" src="./images/pexels-tima-miroshnichenko-5845915.jpg" alt="anvil - Photo by Tima Miroshnichenko from Pexels">
+            <div class="icon-text">Rock</div>
         </div>
         <div class="icon">
             <img id="computer-paper" src="./images/pexels-karolina-grabowska-4386471.jpg" alt="roll of cash in rubber band - Photo by Karolina Grabowska from Pexels">
+            <div class="icon-text">Paper</div>
         </div>
         <div class="icon">
             <img id="computer-scissors" src="./images/pexels-cottonbro-7492585.jpg" alt="circular saw blade - Photo by cottonbro from Pexels">
+            <div class="icon-text">Scissors</div>
         </div>
-        <!-- Computer RPS icons -->
     </div>
     <button>Play Again!</button>
     <script src="./script.js"></script>

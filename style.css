@@ -1,18 +1,57 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(85, 71, 94);
+    color: white;
+}
+
 .icon-row {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.name {
+    text-align: center;
+    font-size: 48px;
+    padding: 10px;
+}
+
+.player {
+    background-color: rgb(202, 89, 55);
+}
+.vs {
+    text-align: center;
+    padding: 10px;
+}
+
+.computer {
+    background-color: rgb(63, 55, 55);
+}
+
 .icon {
     margin: 20px;
+    position: relative;
+    text-align: center;    
+}
+
+.icon-text {
+    pointer-events: none;
+    color: white;
+    font-size: 24px;
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .icon img {
     width: 200px;
     height: 200px;
-    transition: .15s;
-    
+    border: 1px solid white;
+    transition: .15s;    
 }
 
 .player-move img:hover {
@@ -21,5 +60,5 @@
 }
 
 .clicked {
-    /* make bigger */
+    box-shadow: 0 0 30px white;
 }
