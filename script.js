@@ -15,24 +15,14 @@ playerRock.addEventListener('click', (e) => playRound(e));
 playerPaper.addEventListener('click', (e) => playRound(e));
 playerScissors.addEventListener('click', (e) => playRound(e));
 
-function animateButton (e) {
-    
-}
-
-const playerRockIcon = document.querySelector('#player-rock');
-const playerPaperIcon = document.querySelector('#player-paper');
-const playerScissorsIcon = document.querySelector('#player-scissors');
-const computerRockIcon = document.querySelector('#computer-rock');
-const computerPaperIcon = document.querySelector('#computer-paper');
-const computerScissorsIcon = document.querySelector('#computer-scissors');
 // resets visual effects of a played round
 function resetRound (e) {
-    playerRockIcon.classList.remove('player-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
-    playerPaperIcon.classList.remove('player-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
-    playerScissorsIcon.classList.remove('player-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
-    computerRockIcon.classList.remove('computer-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
-    computerPaperIcon.classList.remove('computer-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
-    computerScissorsIcon.classList.remove('computer-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    playerRock.classList.remove('player-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    playerPaper.classList.remove('player-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    playerScissors.classList.remove('player-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    computerRock.classList.remove('computer-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    computerPaper.classList.remove('computer-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    computerScissors.classList.remove('computer-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
 }
 
 //computer chooses Rock, Paper, or Scissors randomly and returns the result
@@ -56,14 +46,13 @@ function playRound (e) {
     const playerIcon = document.querySelector('#' + e.target['id']);
     playerIcon.classList.add('player-clicked');
     playerSelection = e.target['id'].substring(7); //removes 'player-' from the id
-    console.log("Player choice: " + playerSelection);
     computerSelection = computerPlay();
     const computerIcon = document.querySelector(`#computer-${computerSelection}`);
     computerIcon.classList.add('computer-clicked');
     if (computerSelection === playerSelection) {
+        console.log("This round is a tie!");      
         playerIcon.classList.add('tying-icon');
         computerIcon.classList.add('tying-icon');
-        console.log("This round is a tie!");      
     } else if (computerSelection === "rock" && playerSelection === "scissors" ||
                 computerSelection === "scissors" && playerSelection === "paper" ||
                 computerSelection === "paper" && playerSelection === "rock") {
