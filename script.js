@@ -19,18 +19,24 @@ function animateButton (e) {
     
 }
 
-
+const playerText = document.querySelector('.player-name');
+const computerText = document.querySelector('.computer-name');
+function resetWinner (e) {
+    playerText.classList.remove('won');
+    computerText.classList.remove('won');
+    console.log(playerText);
+}
 
 
 
 //computer chooses Rock, Paper, or Scissors randomly and returns the result
+const computerRockIcon = document.querySelector('#computer-rock');
+const computerPaperIcon = document.querySelector('#computer-paper');
+const computerScissorsIcon = document.querySelector('#computer-scissors');
 function computerPlay () {
-    const computerRockIcon = document.querySelector('#computer-rock');
-    const computerPaperIcon = document.querySelector('#computer-paper');
-    const computerScissorsIcon = document.querySelector('#computer-scissors');
-    computerRockIcon.classList.remove('clicked');
-    computerPaperIcon.classList.remove('clicked');
-    computerScissorsIcon.classList.remove('clicked');
+    computerRockIcon.classList.remove('computer-clicked');
+    computerPaperIcon.classList.remove('computer-clicked');
+    computerScissorsIcon.classList.remove('computer-clicked'); 
     let randomNumber = Math.random ();
     let choice;
     if (randomNumber < 0.33) {
@@ -42,14 +48,21 @@ function computerPlay () {
     }
     console.log("Computer choice: " + choice);
     const computerIcon = document.querySelector(`#computer-${choice}`);
-    computerIcon.classList.add('clicked');
+    computerIcon.classList.add('computer-clicked');
     return choice;
 }
 
 //play one round
+const playerRockIcon = document.querySelector('#player-rock');
+const playerPaperIcon = document.querySelector('#player-paper');
+const playerScissorsIcon = document.querySelector('#player-scissors');
 function playRound (e) {
     const playerIcon = document.querySelector('#' + e.target['id']);
-    // playerIcon.classList.add('clicked');
+    resetWinner(e);    
+    playerRockIcon.classList.remove('player-clicked');
+    playerPaperIcon.classList.remove('player-clicked');
+    playerScissorsIcon.classList.remove('player-clicked'); 
+    playerIcon.classList.add('player-clicked');
     playerSelection = e.target['id'].substring(7); //removes 'player-' from the id
     console.log("Player choice: " + playerSelection);
     computerSelection = computerPlay();
@@ -60,11 +73,13 @@ function playRound (e) {
                 computerSelection === "paper" && playerSelection === "rock") {
         console.log("Computer wins the round!");
         computerScore++;
+        computerText.classList.add('won')
     } else if (playerSelection === "rock" && computerSelection === "scissors" ||
     playerSelection === "scissors" && computerSelection === "paper" ||
     playerSelection === "paper" && computerSelection === "rock") {
         console.log("Player wins the round!");
         playerScore++;
+        playerText.classList.add('won')
     } 
     showScore();
 }
@@ -72,6 +87,8 @@ function playRound (e) {
 //show score
 function showScore () {
     console.log("Player: " + playerScore + ", Computer: " + computerScore);
+    const scoreText = document.querySelector('.score');
+    scoreText.textContent = playerScore + ' - ' + computerScore;
 }
 
 //plays rounds (based on rounds variable) then reports the final score, or goes to a tie breaker

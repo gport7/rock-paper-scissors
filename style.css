@@ -10,24 +10,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 340px;
 }
 
-.name {
+.score-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-name,
+.computer-name {
     text-align: center;
     font-size: 48px;
     padding: 10px;
 }
 
-.player {
-    background-color: rgb(202, 89, 55);
-}
-.vs {
+.score {
     text-align: center;
+    font-size: 24px;
     padding: 10px;
-}
-
-.computer {
-    background-color: rgb(63, 55, 55);
 }
 
 .icon {
@@ -50,16 +52,28 @@ body {
 .icon img {
     width: 200px;
     height: 200px;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     transition: .15s;    
 }
 
-.player-move img:hover {
+.player-clicked,
+.computer-clicked {
     transition: .15s;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 15px black;
 }
 
-.clicked {
+.player-clicked {
+    align-items: flex-end;
+    margin-top: 140px;
+}
+
+.computer-clicked {
+    align-items: flex-start;
+    margin-bottom: 140px;    
+}
+
+.won {
+    font-weight: 800;
+    font-size: 64px;
     transition: .15s;
-    box-shadow: 0 0 30px white;
 }
