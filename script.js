@@ -2,7 +2,10 @@ let computerSelection;
 let playerSelection;
 let computerScore = 0;
 let playerScore = 0;
+let roundCounter = 0;
 let rounds = 5;
+
+const roundsStatus = document.querySelector('.round-status');
 
 const playerRock = document.querySelector('#player-rock');
 const playerPaper = document.querySelector('#player-paper');
@@ -42,6 +45,8 @@ function computerPlay () {
 
 //play one round
 function playRound (e) {
+    roundCounter++;
+    roundsStatus.textContent = `Round ${roundCounter}: `;
     resetRound(e);
     const playerIcon = document.querySelector('#' + e.target['id']);
     playerIcon.classList.add('player-clicked');
@@ -53,6 +58,7 @@ function playRound (e) {
         console.log("This round is a tie!");      
         playerIcon.classList.add('tying-icon');
         computerIcon.classList.add('tying-icon');
+        roundsStatus.textContent += 'This round is a tie!';
     } else if (computerSelection === "rock" && playerSelection === "scissors" ||
                 computerSelection === "scissors" && playerSelection === "paper" ||
                 computerSelection === "paper" && playerSelection === "rock") {
@@ -60,12 +66,13 @@ function playRound (e) {
         computerScore++;
         playerIcon.classList.add('losing-icon');
         computerIcon.classList.add('winning-icon');
-
+        roundsStatus.textContent += `Computer's ${computerSelection} beats player's ${playerSelection}. Computer wins the round!`;
     } else {
         console.log("Player wins the round!");
         playerScore++;
         playerIcon.classList.add('winning-icon');
         computerIcon.classList.add('losing-icon');
+        roundsStatus.textContent += `Player's ${playerSelection} beats computer's ${computerSelection}. Computer wins the round!`;
     } 
     showScore(playerSelection, computerSelection);
 }
