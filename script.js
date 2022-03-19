@@ -81,7 +81,7 @@ function playRound (e) {
 function showScore (playerSelection, computerSelection) {
     console.log("Player: " + playerScore + ", Computer: " + computerScore);
     const scoreText = document.querySelector('.score');
-    scoreText.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+    scoreText.textContent = `Player-${playerScore}, Computer-${computerScore}`;
 }
 
 //plays rounds (based on rounds variable) then reports the final score, or goes to a tie breaker

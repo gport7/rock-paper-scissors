@@ -1,3 +1,7 @@
+/* * {
+    border: 1px solid red;
+} */
+
 html, body {
     height: 100%;
 }
@@ -16,8 +20,8 @@ body {
 
 .player-container {
     background-color: rgb(76, 128, 141);
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .center-text-container {
@@ -25,6 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 160px;
 }
 
 .round-status {    
@@ -38,16 +43,22 @@ body {
     font-size: 24px;
 }
 
+.computer-container, 
+.player-container {
+    padding: 0px 30px;
+}
+
 .computer-container {
-    background-color: rgb(71, 52, 43);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    background-color: rgb(177, 4, 4);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .header-player,
 .footer-computer {
     text-align: center;
     font-size: 24px;
+    font-weight: 700;
     padding: 5px;
 }
 
@@ -58,11 +69,11 @@ body {
 }
 
 .player-row {
-    align-items: flex-start;
+    align-items: flex-end;
 }
 
 .computer-row {
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .icon {
@@ -96,21 +107,21 @@ body {
 }
 
 .player-clicked {
-    margin-top: 120px;
+    margin-bottom: 120px;
 }
 
 .computer-clicked {
-    margin-bottom: 120px;    
+    margin-top: 120px;    
 }
 
 .losing-icon {
-    box-shadow: 0 0 50px red;
+    box-shadow: 0 0 50px rgb(160, 30, 30);
 }
 
 .winning-icon {
-    box-shadow: 0 0 50px green;
+    box-shadow: 0 0 50px rgb(87, 252, 21);
 }
 
 .tying-icon {
-    box-shadow: 0 0 50px yellow;
+    box-shadow: 0 0 50px rgb(255, 215, 35);
 }
