@@ -1,0 +1,25 @@
+.icon-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    margin: 20px;
+}
+
+.icon img {
+    width: 200px;
+    height: 200px;
+    transition: .15s;
+    
+}
+
+.player-move img:hover {
+    transition: .15s;
+    box-shadow: 0 0 10px black;
+}
+
+.clicked {
+    /* make bigger */
+}
