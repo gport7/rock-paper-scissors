@@ -25,6 +25,12 @@ function animateButton (e) {
 
 //computer chooses Rock, Paper, or Scissors randomly and returns the result
 function computerPlay () {
+    const computerRockIcon = document.querySelector('#computer-rock');
+    const computerPaperIcon = document.querySelector('#computer-paper');
+    const computerScissorsIcon = document.querySelector('#computer-scissors');
+    computerRockIcon.classList.remove('clicked');
+    computerPaperIcon.classList.remove('clicked');
+    computerScissorsIcon.classList.remove('clicked');
     let randomNumber = Math.random ();
     let choice;
     if (randomNumber < 0.33) {
@@ -35,11 +41,15 @@ function computerPlay () {
         choice = "scissors";
     }
     console.log("Computer choice: " + choice);
+    const computerIcon = document.querySelector(`#computer-${choice}`);
+    computerIcon.classList.add('clicked');
     return choice;
 }
 
 //play one round
 function playRound (e) {
+    const playerIcon = document.querySelector('#' + e.target['id']);
+    // playerIcon.classList.add('clicked');
     playerSelection = e.target['id'].substring(7); //removes 'player-' from the id
     console.log("Player choice: " + playerSelection);
     computerSelection = computerPlay();
