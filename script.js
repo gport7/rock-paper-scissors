@@ -19,24 +19,24 @@ function animateButton (e) {
     
 }
 
-const playerText = document.querySelector('.player-name');
-const computerText = document.querySelector('.computer-name');
-function resetWinner (e) {
-    playerText.classList.remove('won');
-    computerText.classList.remove('won');
-    console.log(playerText);
-}
-
-
-
-//computer chooses Rock, Paper, or Scissors randomly and returns the result
+const playerRockIcon = document.querySelector('#player-rock');
+const playerPaperIcon = document.querySelector('#player-paper');
+const playerScissorsIcon = document.querySelector('#player-scissors');
 const computerRockIcon = document.querySelector('#computer-rock');
 const computerPaperIcon = document.querySelector('#computer-paper');
 const computerScissorsIcon = document.querySelector('#computer-scissors');
+// resets visual effects of a played round
+function resetRound (e) {
+    playerRockIcon.classList.remove('player-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    playerPaperIcon.classList.remove('player-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    playerScissorsIcon.classList.remove('player-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    computerRockIcon.classList.remove('computer-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    computerPaperIcon.classList.remove('computer-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+    computerScissorsIcon.classList.remove('computer-clicked', 'tying-icon', 'winning-icon', 'losing-icon');
+}
+
+//computer chooses Rock, Paper, or Scissors randomly and returns the result
 function computerPlay () {
-    computerRockIcon.classList.remove('computer-clicked');
-    computerPaperIcon.classList.remove('computer-clicked');
-    computerScissorsIcon.classList.remove('computer-clicked'); 
     let randomNumber = Math.random ();
     let choice;
     if (randomNumber < 0.33) {
@@ -46,49 +46,46 @@ function computerPlay () {
     } else {
         choice = "scissors";
     }
-    console.log("Computer choice: " + choice);
-    const computerIcon = document.querySelector(`#computer-${choice}`);
-    computerIcon.classList.add('computer-clicked');
+    console.log("Computer choice: " + choice);    
     return choice;
 }
 
 //play one round
-const playerRockIcon = document.querySelector('#player-rock');
-const playerPaperIcon = document.querySelector('#player-paper');
-const playerScissorsIcon = document.querySelector('#player-scissors');
 function playRound (e) {
+    resetRound(e);
     const playerIcon = document.querySelector('#' + e.target['id']);
-    resetWinner(e);    
-    playerRockIcon.classList.remove('player-clicked');
-    playerPaperIcon.classList.remove('player-clicked');
-    playerScissorsIcon.classList.remove('player-clicked'); 
     playerIcon.classList.add('player-clicked');
     playerSelection = e.target['id'].substring(7); //removes 'player-' from the id
     console.log("Player choice: " + playerSelection);
     computerSelection = computerPlay();
+    const computerIcon = document.querySelector(`#computer-${computerSelection}`);
+    computerIcon.classList.add('computer-clicked');
     if (computerSelection === playerSelection) {
+        playerIcon.classList.add('tying-icon');
+        computerIcon.classList.add('tying-icon');
         console.log("This round is a tie!");      
     } else if (computerSelection === "rock" && playerSelection === "scissors" ||
                 computerSelection === "scissors" && playerSelection === "paper" ||
                 computerSelection === "paper" && playerSelection === "rock") {
         console.log("Computer wins the round!");
         computerScore++;
-        computerText.classList.add('won')
-    } else if (playerSelection === "rock" && computerSelection === "scissors" ||
-    playerSelection === "scissors" && computerSelection === "paper" ||
-    playerSelection === "paper" && computerSelection === "rock") {
+        playerIcon.classList.add('losing-icon');
+        computerIcon.classList.add('winning-icon');
+
+    } else {
         console.log("Player wins the round!");
         playerScore++;
-        playerText.classList.add('won')
+        playerIcon.classList.add('winning-icon');
+        computerIcon.classList.add('losing-icon');
     } 
-    showScore();
+    showScore(playerSelection, computerSelection);
 }
 
 //show score
-function showScore () {
+function showScore (playerSelection, computerSelection) {
     console.log("Player: " + playerScore + ", Computer: " + computerScore);
     const scoreText = document.querySelector('.score');
-    scoreText.textContent = playerScore + ' - ' + computerScore;
+    scoreText.textContent = `Player ${playerScore} - ${computerScore} Computer`;
 }
 
 //plays rounds (based on rounds variable) then reports the final score, or goes to a tie breaker

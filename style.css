@@ -1,3 +1,7 @@
+* {
+    /* border: 2px solid red; */
+}
+
 body {
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
@@ -6,30 +10,26 @@ body {
     color: white;
 }
 
+.participant {
+    text-align: center;
+}
+
 .icon-row {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 340px;
+    height: 300px;
 }
 
-.score-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.player-row {
+    align-items: flex-start;
+    margin-bottom: 50px;
+    background-color: rgb(76, 128, 141);
 }
 
-.player-name,
-.computer-name {
-    text-align: center;
-    font-size: 48px;
-    padding: 10px;
-}
-
-.score {
-    text-align: center;
-    font-size: 24px;
-    padding: 10px;
+.computer-row {
+    align-items: flex-end;
+    margin-top: 50px;
+    background-color: rgb(71, 52, 43);
 }
 
 .icon {
@@ -52,28 +52,52 @@ body {
 .icon img {
     width: 200px;
     height: 200px;
-    /* border: 1px solid white; */
+    border: 1px solid white;
     transition: .15s;    
 }
+
+.score-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.score {
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+}
+
 
 .player-clicked,
 .computer-clicked {
     transition: .15s;
-    box-shadow: 0 0 15px black;
 }
 
 .player-clicked {
-    align-items: flex-end;
-    margin-top: 140px;
+    margin-top: 120px;
 }
 
 .computer-clicked {
-    align-items: flex-start;
-    margin-bottom: 140px;    
+    margin-bottom: 120px;    
+}
+
+.losing-icon {
+    box-shadow: 0 0 50px red;
+}
+
+.winning-icon {
+    box-shadow: 0 0 50px green;
+}
+
+.tying-icon {
+    box-shadow: 0 0 50px yellow;
 }
 
 .won {
     font-weight: 800;
     font-size: 64px;
+    text-decoration: underline;
     transition: .15s;
 }
