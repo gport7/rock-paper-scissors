@@ -49,7 +49,7 @@ body {
 }
 
 .computer-container {
-    background-color: rgb(177, 4, 4);
+    background-color: rgb(57, 22, 182);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -115,7 +115,7 @@ body {
 }
 
 .losing-icon {
-    box-shadow: 0 0 50px rgb(160, 30, 30);
+    box-shadow: 0 0 50px rgb(255, 36, 36);
 }
 
 .winning-icon {
