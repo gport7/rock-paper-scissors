@@ -97,27 +97,4 @@ function winGame (winner) {
     computerScore = 0;
     playerScore = 0;
     roundCounter = 0;
-
-}
-
-//plays rounds (based on rounds variable) then reports the final score, or goes to a tie breaker
-function game (e) {
-    console.log("Let the games begin!")
-    for (let i = 1; i <= rounds; i++) {
-        console.log("----------ROUND " + i + "!----------");
-        playRound(e);
-    }   
-    while(playerScore === computerScore){
-        rounds++;
-        console.log("--------TIE BREAKER!--------");
-        console.log("----------ROUND " + rounds + "!----------");
-        playRound(e);
-    }
-    console.log("----------------------------");
-    console.log("FINAL RESULTS: PLAYER: " + playerScore + ", COMPUTER: " + computerScore);
-    if (playerScore > computerScore) {
-        console.log("Player has won the whole game!");
-    } else {
-        console.log("Computer has won the whole game!");
-    }
 }
