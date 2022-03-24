@@ -45,6 +45,7 @@ function computerPlay () {
 
 //play one round
 function playRound (e) {
+    document.body.style.backgroundColor = 'black';
     roundCounter++;
     roundsStatus.textContent = `Round ${roundCounter}: `;
     resetRound(e);
@@ -82,6 +83,21 @@ function showScore (playerSelection, computerSelection) {
     console.log("Player: " + playerScore + ", Computer: " + computerScore);
     const scoreText = document.querySelector('.score');
     scoreText.textContent = `Player-${playerScore}, Computer-${computerScore}`;
+    if (playerScore === 5) {
+        winGame("Player"); 
+    } else if (computerScore == 5) {
+        winGame("Computer");
+    }
+}
+
+//win game
+function winGame (winner) {
+    document.body.style.backgroundColor = 'green';
+    roundsStatus.textContent = `${winner} wins the game in ${roundCounter} rounds!`
+    computerScore = 0;
+    playerScore = 0;
+    roundCounter = 0;
+
 }
 
 //plays rounds (based on rounds variable) then reports the final score, or goes to a tie breaker
