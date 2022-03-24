@@ -19,9 +19,9 @@ body {
 }
 
 .player-container {
-    background-color: rgb(76, 128, 141);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    background-color: rgb(10, 255, 243);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .center-text-container {
@@ -41,6 +41,12 @@ body {
 .score {
     text-align: center;
     font-size: 24px;
+    align-self: center;
+    padding: 5px 10px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    margin-bottom: 5px;
 }
 
 .computer-container, 
@@ -49,9 +55,9 @@ body {
 }
 
 .computer-container {
-    background-color: rgb(57, 22, 182);
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    background-color: rgb(101, 75, 194);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .header-player,
@@ -119,7 +125,7 @@ body {
 }
 
 .winning-icon {
-    box-shadow: 0 0 50px rgb(87, 252, 21);
+    box-shadow: 0 0 50px rgb(7, 211, 0);
 }
 
 .tying-icon {

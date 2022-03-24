@@ -82,7 +82,7 @@ function playRound (e) {
 function showScore (playerSelection, computerSelection) {
     console.log("Player: " + playerScore + ", Computer: " + computerScore);
     const scoreText = document.querySelector('.score');
-    scoreText.textContent = `Player-${playerScore}, Computer-${computerScore}`;
+    scoreText.textContent = `Computer-${computerScore}, Player-${playerScore}`;
     if (playerScore === 5) {
         winGame("Player"); 
     } else if (computerScore == 5) {
